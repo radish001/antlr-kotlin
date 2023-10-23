@@ -36,6 +36,10 @@ abstract class Lexer : Recognizer<Int, LexerATNSimulator>, TokenSource {
         this.inputStream = null
         this._tokenFactorySourcePair = Pair<TokenSource, CharStream?>(this, null)
         reset()
+        println(input is ANTLRInputStream)
+        println(input is ANTLRInputStream?)
+        println(input is CharStream)
+        println(input is CharStream?)
         this.inputStream = input as CharStream
         this._tokenFactorySourcePair = Pair<TokenSource, CharStream?>(this, readInputStream())
     }
