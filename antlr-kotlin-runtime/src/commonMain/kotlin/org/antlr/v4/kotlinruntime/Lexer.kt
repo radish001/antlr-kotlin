@@ -41,6 +41,8 @@ abstract class Lexer : Recognizer<Int, LexerATNSimulator>, TokenSource {
     }
 
     override fun readInputStream(): CharStream? {
+        println(this.inputStream)
+        println(this.inputStream as CharStream?)
         return this.inputStream as CharStream?
     }
 
