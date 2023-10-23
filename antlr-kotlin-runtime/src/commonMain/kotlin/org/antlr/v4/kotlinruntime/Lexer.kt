@@ -50,6 +50,7 @@ abstract class Lexer : Recognizer<Int, LexerATNSimulator>, TokenSource {
         println(this.inputStream?.sourceName)
         println(this.inputStream is ANTLRInputStream)
         println(this.inputStream is ANTLRInputStream?)
+        println(this.inputStream is CommonTokenStream)
         println(this.inputStream is CharStream)
         println(this.inputStream is CharStream?)
         println(this.inputStream as CharStream)
