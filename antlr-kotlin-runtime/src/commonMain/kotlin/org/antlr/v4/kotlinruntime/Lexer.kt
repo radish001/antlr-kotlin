@@ -36,26 +36,12 @@ abstract class Lexer : Recognizer<Int, LexerATNSimulator>, TokenSource {
         this.inputStream = null
         this._tokenFactorySourcePair = Pair<TokenSource, CharStream?>(this, null)
         reset()
-        println(input is ANTLRInputStream)
-        println(input is ANTLRInputStream?)
-        println(input is CharStream)
-        println(input is CharStream?)
         this.inputStream = input as CharStream
         this._tokenFactorySourcePair = Pair<TokenSource, CharStream?>(this, readInputStream())
     }
 
     override fun readInputStream(): CharStream? {
-        println("打印readInputStream-------")
-        println(this.inputStream.toString())
-        println(this.inputStream?.sourceName)
-        println(this.inputStream is ANTLRInputStream)
-        println(this.inputStream is ANTLRInputStream?)
-        println(this.inputStream is CommonTokenStream)
-        println(this.inputStream is CharStream)
-        println(this.inputStream is CharStream?)
-        println(this.inputStream as CharStream)
-        println(this.inputStream as CharStream?)
-
+    
         return this.inputStream as CharStream?
     }
 
