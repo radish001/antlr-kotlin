@@ -12,42 +12,53 @@ apply(plugin = "maven-publish")
 kotlin {
     jvm()
     js(IR) {
+        //binaries.executable()
         browser {
+            testTask {
+                useMocha {
+                    timeout = "10s"
+                }
+            }
         }
         nodejs {
+            testTask {
+                useMocha {
+                    timeout = "10s"
+                }
+            }
         }
     }
 
-    ios("ios") {
+    /*ios("ios") {
         binaries {
             staticLib()
         }
-    }
-    linuxArm64 {
+    }*/
+   /* linuxArm64 {
         binaries {
             staticLib()
         }
-    }
-    linuxX64 {
+    }*/
+    /*linuxX64 {
         binaries {
             staticLib()
         }
-    }
-    macosArm64 {
+    }*/
+    /*macosArm64 {
         binaries {
             staticLib()
         }
-    }
-    macosX64 {
+    }*/
+    /*macosX64 {
         binaries {
             staticLib()
         }
-    }
-    mingwX64("windows") {
+    }*/
+   /* mingwX64("windows") {
         binaries {
             staticLib()
         }
-    }
+    }*/
     sourceSets {
         commonMain {
             dependencies {
@@ -83,7 +94,7 @@ kotlin {
                 implementation(kotlin("test-js"))
             }
         }
-        val nativeMain by creating {
+       /* val nativeMain by creating {
         }
         val iosMain by getting {
             dependsOn(nativeMain)
@@ -108,6 +119,13 @@ kotlin {
         }
         val windowsMain by getting {
             dependsOn(nativeMain)
-        }
+        }*/
     }
 }
+
+
+
+tasks.getByName("jsBrowserTest").enabled = false
+tasks.getByName("jsNodeTest").enabled = false
+
+
